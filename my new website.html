@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahdii WebDeveloper</title>
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0f172a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+
+    header {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #38bdf8;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* HERO SECTION */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 120px 10%;
+      gap: 50px;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.7)),
+        url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text h1 {
+      font-size: 60px;
+      margin-bottom: 15px;
+    }
+
+    .hero-text h1 span {
+      color: #38bdf8;
+    }
+
+    .hero-text h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      line-height: 1.8;
+      margin-bottom: 25px;
+      color: #d1d5db;
+    }
+
+    .btns {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      background: #38bdf8;
+      border-radius: 8px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: white;
+      transform: scale(1.05);
+    }
+
+    .hero-img {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero-img img {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #38bdf8;
+      box-shadow: 0 0 30px #38bdf8;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 100px 10%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 50px;
+      color: #38bdf8;
+    }
+
+    /* ABOUT */
+
+    .about-container {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .about-box {
+      flex: 1;
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 15px;
+      line-height: 1.9;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    }
+
+    /* SKILLS */
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .skill-box {
+      background: #1e293b;
+      padding: 25px;
+      text-align: center;
+      border-radius: 15px;
+      transition: 0.4s;
+    }
+
+    .skill-box:hover {
+      transform: translateY(-10px);
+      background: #38bdf8;
+      color: black;
+    }
+
+    .skill-box i {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    /* EDUCATION */
+
+    .education-box {
+      background: #1e293b;
+      padding: 30px;
+      margin-bottom: 20px;
+      border-left: 5px solid #38bdf8;
+      border-radius: 12px;
+    }
+
+    /* EXPERIENCE */
+
+    .experience-box {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 15px;
+    }
+
+    /* SERVICES */
+
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .service-box {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      transition: 0.4s;
+    }
+
+    .service-box:hover {
+      transform: scale(1.05);
+      background: #38bdf8;
+      color: black;
+    }
+
+    /* GALLERY */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    /* TESTIMONIAL */
+
+    .testimonial-box {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 15px;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    /* CONTACT */
+
+    .contact-container {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .contact-info,
+    .contact-form {
+      flex: 1;
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 15px;
+    }
+
+    .contact-info p {
+      margin: 20px 0;
+      font-size: 18px;
+    }
+
+    .contact-info i {
+      color: #38bdf8;
+      margin-right: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    .contact-form button {
+      padding: 14px 30px;
+      background: #38bdf8;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: black;
+      text-align: center;
+      padding: 30px;
+      margin-top: 50px;
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 22px;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #38bdf8;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px) {
+
+      .hero-text h1 {
+        font-size: 40px;
+      }
+
+      .hero-text h2 {
+        font-size: 22px;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        background: black;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+        transition: 0.4s;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <nav>
+
+      <div class="logo">Mahdii</div>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact">Get in Touch</a>
+       
+      </div>
+
+      <div class="menu-btn" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+
+      <h1>Hello I'm <span>Mahad Shah</span></h1>
+
+      <h2>Student + Web Developer</h2>
+
+      <p>
+        Hello I am Mahad Shah S/O Saifullah. I am a passionate web developer
+        and student. My goal is to become one of the best developers in Pakistan.
+        I create professional and responsive websites for people and businesses.
+      </p>
+
+      <div class="btns">
+
+        <a href="#contact" class="btn">Get In Touch</a>
+
+        <!-- PUT YOUR CV LINK BELOW -->
+        <a href="Mahdii CV.pdf.html" target="_blank" class="btn">Download CV</a>
+
+      </div>
+
+    </div>
+
+    <div class="hero-img">
+
+      <!-- PUT YOUR IMAGE HERE -->
+      <img src="my pic 2.png" alt="Mahad Shah">
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h1 class="section-title">About Me</h1>
+
+    <div class="about-container">
+
+      <div class="about-box">
+
+        <p>
+          I am Mahad Shah S/O Saifullah from Sardheri Bazar Charsadda.
+          I am a complete web developer and passionate learner.
+          I love designing modern and responsive websites.
+          My mission is to become one of the best web developers in my country.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h1 class="section-title">My Skills</h1>
+
+    <div class="skills-container">
+
+      <div class="skill-box">
+        <i class="fa-brands fa-html5"></i>
+        <h2>HTML</h2>
+      </div>
+
+      <div class="skill-box">
+        <i class="fa-brands fa-css3-alt"></i>
+        <h2>CSS</h2>
+      </div>
+
+      <div class="skill-box">
+        <i class="fa-brands fa-js"></i>
+        <h2>JavaScript</h2>
+      </div>
+
+      <div class="skill-box">
+        <i class="fa-solid fa-mobile-screen"></i>
+        <h2>Responsive Design</h2>
+      </div>
+
+      <div class="skill-box">
+        <i class="fa-solid fa-file-word"></i>
+        <h2>MS Office</h2>
+      </div>
+
+      <div class="skill-box">
+        <i class="fa-brands fa-wordpress"></i>
+        <h2>WordPress</h2>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EDUCATION -->
+
+  <section id="education">
+
+    <h1 class="section-title">Education</h1>
+
+    <div class="education-box">
+      <h2>SSC</h2>
+      <p>Completed from Indus Private School</p>
+    </div>
+
+    <div class="education-box">
+      <h2>HSSC</h2>
+      <p>Completed from Indus College Charsadda</p>
+    </div>
+
+    <div class="education-box">
+      <h2>BS English</h2>
+      <p>In Progress from Bacha Khan University Charsadda</p>
+    </div>
+
+    <div class="education-box">
+      <h2>Dental Technician Diploma</h2>
+      <p>In Progress from Jinnah College Charsadda</p>
+    </div>
+
+    <div class="education-box">
+      <h2>Web Development Course</h2>
+      <p>Completed from International Skills Development Sardheri</p>
+    </div>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+
+  <section>
+
+    <h1 class="section-title">Experience</h1>
+
+    <div class="experience-box">
+
+      <h2>Internship as Admin</h2>
+
+      <p>
+        Worked as an Admin Intern in Indus College Charsadda for 1 year.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <h1 class="section-title">My Services</h1>
+
+    <div class="services-container">
+
+      <div class="service-box">
+        <h2>Website Design</h2>
+      </div>
+
+      <div class="service-box">
+        <h2>Responsive Website</h2>
+      </div>
+
+      <div class="service-box">
+        <h2>Portfolio Website</h2>
+      </div>
+
+      <div class="service-box">
+        <h2>Business Website</h2>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY -->
+
+  <section id="gallery">
+
+    <h1 class="section-title">My Gallery</h1>
+
+    <div class="gallery">
+
+      <img src="your-image1.jpg" alt="">
+      <img src="your-image2.jpg" alt="">
+      <img src="your-image3.jpg" alt="">
+
+    </div>
+
+  </section>
+
+  <!-- REFERENCE SECTION -->
+
+  <section>
+
+    <h1 class="section-title">Reference Messages</h1>
+
+    <div class="testimonial-box">
+
+      <h2>Reference Area</h2>
+
+      <p>
+        People can send recommendation messages here.
+        Famous people, relatives, or clients can recommend
+        Mahdii WebDeveloper for creating websites.
+      </p>
+
+      <br>
+
+      <p><b>Name:</b> ____________</p>
+      <p><b>Occupation:</b> ____________</p>
+      <p><b>Message:</b> ____________</p>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <h1 class="section-title">Get In Touch</h1>
+
+    <div class="contact-container">
+
+      <div class="contact-info">
+
+        <p><i class="fa-solid fa-phone"></i> 03407529993</p>
+
+        <p><i class="fa-brands fa-whatsapp"></i> 03407529993</p>
+
+        <p><i class="fa-solid fa-envelope"></i> mk0589065@gmail.com</p>
+
+        <p><i class="fa-brands fa-facebook"></i> Mahad Khan</p>
+
+      </div>
+
+      <div class="contact-form">
+
+        <form>
+
+          <input type="text" placeholder="Your Name">
+          <input type="tell" placeholder="Phone Number">
+
+          <input type="email" placeholder="Your Email">
+
+          <textarea rows="6" placeholder="Your Message"></textarea>
+
+          <button type="submit">Send Message</button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <h2>Mahdii WebDeveloper</h2>
+
+    <p>Professional Business Portfolio Website</p>
+
+    <div class="social-icons">
+
+      <a href="#"><i class="fa-brands fa-facebook"></i></a>
+
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+      <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+
+      <a href="#"><i class="fa-brands fa-github"></i></a>
+
+    </div>
+
+    <br>
+
+    <p>© 2026 All Rights Reserved | Mahad Shah</p>
+
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+  </script>
+
+</body>
+
+</html>
